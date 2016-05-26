@@ -18,16 +18,21 @@ namespace CompleteProject
             playerHealth = player.GetComponent <PlayerHealth> ();
             enemyHealth = GetComponent <EnemyHealth> ();
             nav = GetComponent <NavMeshAgent> ();
+            nav.angularSpeed = Random.value*100;
+            nav.speed = Random.value*40;
         }
 
 
         void Update ()
         {
+            Debug.Log("Velocidad de giro del agente: " +nav.angularSpeed);
+            Debug.Log("Velocidad del agente: " + nav.speed);
             // If the enemy and the player have health left...
-            if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+            if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
             {
                 // ... set the destination of the nav mesh agent to the player.
                 nav.SetDestination (player.position);
+
             }
             // Otherwise...
             else

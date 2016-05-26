@@ -6,7 +6,7 @@ namespace CompleteProject
     public class EnemyAttack : MonoBehaviour
     {
         public float timeBetweenAttacks = 0.5f;     // The time in seconds between each attack.
-        public int attackDamage = 10;               // The amount of health taken away per attack.
+        public int attackDamage = (int)Random.value*30;               // The amount of health taken away per attack.
 
 
         Animator anim;                              // Reference to the animator component.
@@ -51,6 +51,7 @@ namespace CompleteProject
 
         void Update ()
         {
+            
             // Add the time since Update was last called to the timer.
             timer += Time.deltaTime;
 
@@ -80,6 +81,7 @@ namespace CompleteProject
             {
                 // ... damage the player.
                 playerHealth.TakeDamage (attackDamage);
+                Debug.Log("Daño del agente al jugador: " + attackDamage);
             }
         }
     }

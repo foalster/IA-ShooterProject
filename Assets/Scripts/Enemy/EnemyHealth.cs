@@ -4,7 +4,7 @@ namespace CompleteProject
 {
     public class EnemyHealth : MonoBehaviour
     {
-        public int startingHealth = 100;            // The amount of health the enemy starts the game with.
+        public int startingHealth = (int)Random.value*100;            // The amount of health the enemy starts the game with.
         public int currentHealth;                   // The current health the enemy has.
         public float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
         public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
@@ -34,8 +34,9 @@ namespace CompleteProject
 
         void Update ()
         {
+            Debug.Log("Vida inicial del enemigo(resistencia): " + startingHealth);
             // If the enemy should be sinking...
-            if(isSinking)
+            if (isSinking)
             {
                 // ... move the enemy down by the sinkSpeed per second.
                 transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
