@@ -9,7 +9,8 @@ namespace CompleteProject
         PlayerHealth playerHealth;      // Reference to the player's health.
         EnemyHealth enemyHealth;        // Reference to this enemy's health.
         NavMeshAgent nav;               // Reference to the nav mesh agent.
-
+        float angularspeedrandom = 90f;
+        float speedrandom = 10f;
 
         void Awake ()
         {
@@ -18,15 +19,15 @@ namespace CompleteProject
             playerHealth = player.GetComponent <PlayerHealth> ();
             enemyHealth = GetComponent <EnemyHealth> ();
             nav = GetComponent <NavMeshAgent> ();
-            nav.angularSpeed = Random.value*100;
-            nav.speed = Random.value*40;
+            nav.angularSpeed = angularspeedrandom;
+            nav.speed= speedrandom;
         }
 
 
         void Update ()
         {
-            Debug.Log("Velocidad de giro del agente: " +nav.angularSpeed);
-            Debug.Log("Velocidad del agente: " + nav.speed);
+            Debug.Log("Velocidad de giro del enemigo: " +nav.angularSpeed);
+            Debug.Log("Velocidad del enemigo: " + nav.speed);
             // If the enemy and the player have health left...
             if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
             {

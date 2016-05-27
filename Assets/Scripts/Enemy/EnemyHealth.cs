@@ -4,8 +4,8 @@ namespace CompleteProject
 {
     public class EnemyHealth : MonoBehaviour
     {
-        public int startingHealth = (int)Random.value*100;            // The amount of health the enemy starts the game with.
-        public int currentHealth;                   // The current health the enemy has.
+        public float startingHealth = 100;            // The amount of health the enemy starts the game with.
+        public float currentHealth;                   // The current health the enemy has.
         public float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
         public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
         public AudioClip deathClip;                 // The sound to play when the enemy dies.
@@ -26,7 +26,7 @@ namespace CompleteProject
             enemyAudio = GetComponent <AudioSource> ();
             hitParticles = GetComponentInChildren <ParticleSystem> ();
             capsuleCollider = GetComponent <CapsuleCollider> ();
-
+            startingHealth = 60;
             // Setting the current health when the enemy first spawns.
             currentHealth = startingHealth;
         }
